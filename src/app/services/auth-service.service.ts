@@ -12,12 +12,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(credentials) {
-    return this.http.post(this.url + 'api/login', JSON.stringify(credentials), {headers: this.headers})
-    .subscribe(response => {
-      console.log(response);
-    }, error => {
-      alert('something bad happen');
-    });
+    return this.http.post(this.url + 'api/login', JSON.stringify(credentials), {headers: this.headers});
   }
 
   register(credentials) {
@@ -31,7 +26,7 @@ export class AuthService {
       });
   }
 
-  getAllUsers() {
-    return this.http.get(this.url + 'api/users');
-  }
+  // getAllUsers() {
+  //   return this.http.get(this.url + 'api/users');
+  // }
 }
