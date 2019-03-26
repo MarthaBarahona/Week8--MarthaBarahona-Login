@@ -1,6 +1,9 @@
-import { AuthService } from './../../services/auth-service.service';
+import { Credentials } from './../../interfaces/credentials.interface';
+import { LocalStorageService } from './../../services/local-storage.service';
+import { User } from './../../interfaces/user.interface';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,37 +11,34 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./login.component.sass']
 })
 export class LoginComponent implements OnInit {
+  usersList: User[] = [];
   form: FormGroup;
-  constructor(private service: AuthService, private fb: FormBuilder) {
+
+  constructor(private storage: LocalStorageService, private fb: FormBuilder, private route: Router) {
     this.form = fb.group({
-      email: [],
+      username: [],
       password: []
     });
    }
 
   ngOnInit() {
-    // this.service.login()
-    //   .subscribe(response => {
-    //     console.log(response);
-    //   },
-    //   (error: Response) => {
-    //     if (error.status === 404) {
-    //       alert('User dont found');
-    //     }
-    //   });
   }
 
-  get email() {
-    return this.form.get('email');
+  get username() {
+    return this.form.get('username');
   }
 
   get password() {
     return this.form.get('password');
   }
 
-  signIn(credentials) {
-    console.log(credentials);
-    this.service.login(credentials);
+  signIn(credentials: Credentials) {
+    this.usersList = this.storage.getUsers();
+    const userExist = this.usersList.find((user: User) => {
+      return user.username === credentials.username && user.password === credentials.password;
+    });
+
+    console.log(userExist);
   }
 
 }
