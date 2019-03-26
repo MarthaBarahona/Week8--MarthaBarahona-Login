@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ContainerComponent } from './components/container/container.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ContainerComponent } from './components/container/container.component';
     LoginComponent,
     RegisterComponent,
     ContainerComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,8 +25,9 @@ import { ContainerComponent } from './components/container/container.component';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
+      {path: '', component: LoginComponent },
       {path: 'register', component: RegisterComponent },
-      {path: '', component: LoginComponent }
+      {path: 'homePage', component: HomePageComponent }
     ])
   ],
   providers: [],
