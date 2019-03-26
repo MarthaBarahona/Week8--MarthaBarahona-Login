@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,13 +15,17 @@ import { ContainerComponent } from './components/container/container.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    ContainerComponent
+    ContainerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      {path: 'register', component: RegisterComponent },
+      {path: '', component: LoginComponent }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
