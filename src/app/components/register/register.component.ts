@@ -54,9 +54,9 @@ export class RegisterComponent implements OnInit {
     return this.formRegister.get('image');
   }
 
-  register(credentials: User) {
-    this.service.register(credentials);
-    this.usersList.push(credentials);
+  register(newUserInfo: User) {
+    this.service.register(newUserInfo);
+    this.usersList.push(newUserInfo);
     this.storage.setNewUser(this.usersList);
     console.log(this.usersList);
 
