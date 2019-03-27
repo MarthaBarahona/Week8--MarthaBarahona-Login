@@ -7,12 +7,11 @@ import { BehaviorSubject } from 'rxjs';
 export class BehaviorObservableService {
   private behave = new BehaviorSubject(false);
   constructor() { }
-
-  setBehaviorView(behave: boolean) {
-    this.behave.next(behave);
+  get behavior() {
+    return this.behave.value;
   }
 
-  getBehaviorUser() {
-    return this.behave;
+  set behavior(newState: boolean) {
+    this.behave.next(newState);
   }
 }
