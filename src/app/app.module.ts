@@ -1,3 +1,7 @@
+import { LogoutGuardService } from './guards/logout-guard.service';
+import { LoginnComponent } from './log-in/components/login/login.component';
+import { LogInModule } from './log-in/log-in.module';
+import { AuthGuardService } from './guards/auth-guard.service';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -6,31 +10,32 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
 import { ContainerComponent } from './components/container/container.component';
-import { HomePageComponent } from './home-page/home-page.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { DisplarErrorsComponent } from './components/displar-errors/displar-errors.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
     ContainerComponent,
     HomePageComponent,
+    DisplarErrorsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    LogInModule,
     RouterModule.forRoot([
-      {path: '', component: LoginComponent },
-      {path: 'register', component: RegisterComponent },
-      {path: 'homePage', component: HomePageComponent }
+      {path: '', component: LoginnComponent },
+      {path: 'homePage', component: HomePageComponent, canActivate: [AuthGuardService] },
+      {path: 'showErrors', component: DisplarErrorsComponent }
     ])
   ],
-  providers: [],
+  providers: [
+    AuthGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
