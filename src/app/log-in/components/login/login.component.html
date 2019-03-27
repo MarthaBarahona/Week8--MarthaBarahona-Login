@@ -1,0 +1,19 @@
+<form [formGroup]="form" (ngSubmit)="signIn(form.value)">
+  <div class="form-group">
+    <label for="username">UserName: </label>
+    <input formControlName="username" id="username" type="text" class="form-control"/>
+    <div class="alert" *ngIf="username.touched && username.invalid">
+      <div *ngIf="username['errors'].required">Username required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password: </label>
+    <input formControlName="password" id="password" type="text" class="form-control"/>
+    <div *ngIf="password.touched && password.invalid" class="alert">
+      <div *ngIf="password['errors'].required">Password Required</div>
+    </div>
+  </div>
+  <button [disabled]="form.invalid" type="submit">Sign In</button>
+</form>
+
+<a routerLink="/register">Create an account</a>

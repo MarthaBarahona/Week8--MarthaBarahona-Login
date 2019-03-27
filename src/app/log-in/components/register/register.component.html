@@ -1,0 +1,51 @@
+<form [formGroup]="formRegister" (ngSubmit)="register(formRegister.value)">
+  <div class="form-group">
+    <label for="firstname">First Name: </label>
+    <input formControlName="firstname" id="firstname" type="text" class="form-control">
+    <div *ngIf="firstname.touched && firstname.invalid" class="alert">
+      <div *ngIf="firstname['errors'].required">First Name required</div>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="lastname">Last Name: </label>
+    <input formControlName="lastname" id="lastname" type="text" class="form-control"/>
+    <div class="alert" *ngIf="lastname.touched && lastname.invalid">
+      <div *ngIf="lastname['errors'].required">Last Name required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="username">Username: </label>
+    <input formControlName="username" id="username" type="text" class="form-control"/>
+    <div class="alert" *ngIf="username.touched && username.invalid">
+      <div *ngIf="username['errors'].required">Username Required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email: </label>
+    <input formControlName="email" id="email" type="text" class="form-control"/>
+    <div class="alert" *ngIf="email.touched && email.invalid">
+      <div *ngIf="email['errors'].required">Email Required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="password">password</label>
+    <input formControlName="password" id="password" type="text" class="form-control"/>
+    <div class="alert" *ngIf="password.touched && password.invalid">
+      <div *ngIf="password['errors'].required">Password Required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="image">Avatar: </label>
+    <input formControlName="image" id="image" type="text" class="form-control"/>
+    <div class="alert" *ngIf="image.touched && image.invalid">
+      <div *ngIf="image['errors'].required">URL required</div>
+    </div>
+  </div>
+  
+  <button [disabled]="formRegister.invalid" type="submit">Register</button>
+</form>
