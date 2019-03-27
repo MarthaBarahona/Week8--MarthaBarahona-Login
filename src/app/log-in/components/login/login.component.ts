@@ -30,7 +30,7 @@ export class LoginnComponent implements OnInit {
    }
 
   ngOnInit() {
-    console.log(this.state.getBehaviorUser());
+    console.log(this.state.behavior);
   }
 
   get username() {
@@ -47,7 +47,7 @@ export class LoginnComponent implements OnInit {
     if (!response) {
       this.route.navigate(['/showErrors']);
     } else {
-      this.state.setBehaviorView(true);
+      this.state.behavior = true;
       this.user.setUser(response);
       this.route.navigate(['/homePage']);
     }
