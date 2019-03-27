@@ -11,7 +11,7 @@ export class UserService {
 
   getUser() {
     if (localStorage.getItem('user') !== null) {
-      this.user = JSON.stringify(localStorage.getItem('user') || '[]');
+      this.user = JSON.parse(localStorage.getItem('user') || '[]');
     }
     return this.user;
   }

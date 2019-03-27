@@ -30,12 +30,12 @@ export class LocalStorageService {
   }
 
   logOut() {
-    this.state.setBehaviorView(false);
+    this.state.behavior = false;
     this.user.deleteUser();
     this.route.navigate(['/']);
   }
 
   isLoggedIn() {
-    return this.actualState = this.state.getBehaviorUser().value;
+    return this.actualState = this.state.behavior;
   }
 }
