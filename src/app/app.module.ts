@@ -1,4 +1,4 @@
-import { LogoutGuardService } from './guards/logout-guard.service';
+import { HeaderComponent } from './components/header/header.component';
 import { LoginnComponent } from './log-in/components/login/login.component';
 import { LogInModule } from './log-in/log-in.module';
 import { AuthGuardService } from './guards/auth-guard.service';
@@ -20,6 +20,7 @@ import { DisplarErrorsComponent } from './components/displar-errors/displar-erro
     ContainerComponent,
     HomePageComponent,
     DisplarErrorsComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
