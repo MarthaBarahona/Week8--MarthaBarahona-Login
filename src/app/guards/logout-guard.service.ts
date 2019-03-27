@@ -1,3 +1,5 @@
+import { UserService } from './../services/user.service';
+import { BehaviorObservableService } from './../services/behavior-observable.service';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
@@ -7,10 +9,11 @@ import { CanActivate, Router } from '@angular/router';
 })
 export class LogoutGuardService implements CanActivate {
 
-  constructor(private router: Router, private state: LocalStorageService) { }
+  constructor(private router: Router, private user: UserService) { }
 
   canActivate() {
-    if (!this.state.isLoggedIn()) {
+    const isLoggin = this.user.getUser();
+    if (isLoggin === null) {
       return true;
     }
 
