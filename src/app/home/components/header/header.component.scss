@@ -1,19 +1,101 @@
-.user-info {
-  height: 100px;
-  background-color: yellowgreen;
+@import '../../../../variables.scss';
+
+/* CSS GRID
+
+=========================*/
+.container {
+  grid-area: container;
+  display: grid;
+  grid-template-areas: 
+    ". . image"
+    ". . ."
+    ". . boxInfo"
+}
+
+img {
+  grid-area: image;
+}
+
+.box-info {
+  justify-self: end;
+  grid-area: boxInfo;
+}
+
+.header {
+  display: grid;
+  grid-template-areas: 
+    ". . container"
+}
+
+
+/* CSS STYLE
+
+=========================*/
+.container{
+  padding: 10px 10px 0 0;
+}
+
+.header {
+  height: 75px;
+  background-color: $header-homepage-background-color;
 
   img {
     justify-self: end;
     height: 50px;
     width: 50px;
+    padding: 2.5px;
+    border: solid $white 1px;
+    border-radius: 100%;
+  }
+
+  .box-info {
+    padding: 15px;
+    margin: 10px 15px 0 0;
+    height: auto;
+    width: 75%;
+    border-radius: $div-border-radius;
+    color: $text-user-card-color;
+    background-color: $user-card-background-color;
+
+    .image {
+      margin-left: 96px;
+      height: 65px;
+      width: 65px;
+    }
+
+    .profile {
+      text-decoration: none;
+      border: none;
+      border-radius: $botton-anchor-border-radius;
+      padding: $botton-padding;
+      border: solid $wine 2px;
+      background-color: $wine;
+      color: $white;
+
+      &:hover {
+        background-color: $light-blue;
+        color: $dark-pink;
+        border: solid $light-blue 2px;
+      }
+    }
+
+    .log-out {
+      margin-left: 10px;
+      text-decoration: none;
+      border: none;
+      padding: $botton-padding;
+      border: solid $log-out-button-background-color 2px;
+      border-radius: $botton-anchor-border-radius;
+      background-color: $user-card-background-color;
+      color: $text-button-color;
+
+      &:hover {
+        border: solid $wine 2px;
+        background-color: $wine;
+        color: $white;
+      }
+    }
   }
 }
 
-.box-info {
-  background-color: black;
-  padding: 5px;
-  color: white;
-  height: auto;
-  width: 45%;
-}
 
