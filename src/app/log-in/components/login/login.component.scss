@@ -1,0 +1,54 @@
+@import '../../../../variables.scss';
+
+//CSS GRID
+.decoration-space {
+  grid-area: decorationSpace;
+}
+
+.data-space {
+  grid-area: dataSpace;
+}
+
+.container {
+  height: 95vh;
+  display: grid;
+  grid-template-rows: 20% 60% 20%;
+  grid-template-columns: 10% 40% 40% 10%;
+  grid-template-areas: 
+    ". . . ."
+    ". decorationSpace dataSpace ."
+    ". . . ."
+}
+
+//CSS STYLE
+.decoration-space {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  margin-left: 30%;
+  max-width: 70%;
+  //justify-self: center;
+  background-color: $pink;
+}
+
+.data-space {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  max-width: 70%;
+  background-color: $dark-pink;
+}
+
+form {
+  label, input {
+    margin: 5px 0 5px 5px;
+  }
+}
+
+button{
+  text-decoration: none;
+  border: none;
+  padding: 10px;
+
+  &:disabled {
+    background-color: black;
+  }
+}
