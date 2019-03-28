@@ -1,0 +1,10 @@
+<div class="user-info">
+  <img (click)="changeView()" [src]="user.image">
+  <div [hidden]="!isSelected" class="box-info">
+    <img [src]="user.image">
+    <p>{{user.firstname}} {{user.lastname}}</p>
+    <p>{{user.email}}</p>
+    <button [routerLink]="['profile']" (click)="changeView()">Profile</button>
+    <button (click)="service.logOut()">log out </button>
+  </div>
+</div>
