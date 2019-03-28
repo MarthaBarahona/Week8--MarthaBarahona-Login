@@ -11,15 +11,24 @@ $disable-gray: #f6f5f5;
 $alert-gray: #d9d9d9;
 $black: #000;
 
-/* GENERAL COLORS
+/* COLORS
 
 =========================*/
 
+/*-----------LOGIN---------*/
+$form-login-color: $white;
 $general-beckground-color: $light-blue;
 $logIn-background: $dark-pink;
 $disable-color: $disable-gray;
 $enable-color-button: $pink;
 $error-background-color: $alert-gray;
+
+/*-----------REGISTER---------*/
+$title-color: $dark-pink;
+$form-register-color: $dark-pink;
+$p-color: $wine;
+$register-background-color: $pink;
+$enable-register-color-button: $wine;
 
 /* GENERAL PADDING
 
