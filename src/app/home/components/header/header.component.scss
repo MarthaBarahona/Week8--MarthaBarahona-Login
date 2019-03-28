@@ -17,16 +17,23 @@ img {
 }
 
 .box-info {
+  position: relative;
+  z-index: 3;
   justify-self: end;
   grid-area: boxInfo;
 }
 
 .header {
+  a {
+    text-decoration: none;
+    color: $white;
+    margin: 25px 0 0 20px;
+  }
+
   display: grid;
   grid-template-areas: 
     ". . container"
 }
-
 
 /* CSS STYLE
 
@@ -97,5 +104,3 @@ img {
     }
   }
 }
-
-
