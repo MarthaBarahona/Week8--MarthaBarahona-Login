@@ -1,5 +1,8 @@
-import { HeaderComponent } from './components/header/header.component';
-import { LoginnComponent } from './log-in/components/login/login.component';
+import { LogoutGuardService } from './guards/logout-guard.service';
+import { HomePageComponent } from './home/components/home-page/home-page.component';
+import { DisplayErrorsComponent } from './home/components/display-errors/display-errors.component';
+import { HomeModule } from './home/home.module';
+import { LoginComponent } from './log-in/components/login/login.component';
 import { LogInModule } from './log-in/log-in.module';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { RouterModule } from '@angular/router';
@@ -11,16 +14,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContainerComponent } from './components/container/container.component';
-import { HomePageComponent } from './components/home-page/home-page.component';
-import { DisplarErrorsComponent } from './components/displar-errors/displar-errors.component';
+import { UserProfileComponent } from './home/components/user-profile/user-profile.component';
+import { ProductsComponent } from './home/components/products/products.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContainerComponent,
-    HomePageComponent,
-    DisplarErrorsComponent,
-    HeaderComponent,
+    ContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -28,10 +28,20 @@ import { DisplarErrorsComponent } from './components/displar-errors/displar-erro
     HttpClientModule,
     ReactiveFormsModule,
     LogInModule,
+    HomeModule,
     RouterModule.forRoot([
-      {path: '', component: LoginnComponent },
-      {path: 'homePage', component: HomePageComponent, canActivate: [AuthGuardService] },
-      {path: 'showErrors', component: DisplarErrorsComponent }
+      {path: '', component: LoginComponent,
+        children: [
+          {path: 'showErrors', component: DisplayErrorsComponent }
+        ]
+      },
+      {path: 'homePage', component: HomePageComponent, canActivate: [AuthGuardService],
+        children: [
+          {path: '', redirectTo: 'products', pathMatch: 'full' },
+          {path: 'products', component: ProductsComponent},
+          {path: 'profile', component: UserProfileComponent}
+        ]
+      },
     ])
   ],
   providers: [
