@@ -1,0 +1,54 @@
+@import '../../../../variables.scss';
+
+/* CSS GRID
+
+=========================*/
+
+.container {
+  grid-area: container;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-areas: 
+    ". container ."
+}
+
+/* CSS STYLE
+
+=========================*/
+
+.container {
+  margin: 40px 0 0 0;
+  justify-self: center;
+  padding: 50px;
+  background-color: $wine;
+  border-radius: 20px 100px 20px 100px;
+
+  img {
+    height: 150px;
+    width: 150px;
+    margin-left: 78px;
+  }
+
+  p {
+    text-align: center;
+    color: $white;
+  }
+}
+
+/* CSS QUERY
+
+=========================*/
+
+@media only screen and (max-width: 367px)  {
+  .container {
+    padding-left: 22px;
+  }
+}
+
+@media only screen and (max-width: 347px)  {
+  .container {
+    width: 75%;
+  }
+}
