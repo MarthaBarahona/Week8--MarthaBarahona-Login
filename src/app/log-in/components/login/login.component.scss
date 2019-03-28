@@ -1,6 +1,9 @@
 @import '../../../../variables.scss';
 
-//CSS GRID
+/* CSS GRID
+
+=========================*/
+
 .decoration-space {
   grid-area: decorationSpace;
 }
@@ -10,9 +13,8 @@
 }
 
 .container {
-  height: 95vh;
   display: grid;
-  grid-template-rows: 18% auto 18%;
+  grid-template-rows: 10% 120% 10%;
   grid-template-columns: 10% 40% 40% 10%;
   grid-template-areas: 
     ". . . ."
@@ -20,7 +22,10 @@
     ". . . ."
 }
 
-//CSS STYLE
+/* CSS STYLE
+
+=========================*/
+
 .decoration-space {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -70,6 +75,10 @@ form {
   }
 }
 
+.footer {
+  margin: 37px 0 0 58px;
+}
+
 .alert {
   
   background-color: $alert-gray;
@@ -96,20 +105,93 @@ button{
 }
 
 p {
+  display: inline;
   margin: 30px 0 30px 0;
   text-align: center;
+}
 
-  a {
-    margin-left: 8px;
+a {
+  margin-left: 8px;
+  padding: $anchor-padding;
+  border-radius: $botton-anchor-border-radius;
+  border: solid $light-blue 1px;
+  text-decoration: none;
+  color: $light-blue;
+  &:hover {
     padding: $anchor-padding;
-    border-radius: $botton-anchor-border-radius;
-    border: solid $light-blue 1px;
-    text-decoration: none;
-    color: $light-blue;
-    &:hover {
-      padding: $anchor-padding;
-      background-color: $pink;
-      color:  $wine;
+    background-color: $pink;
+    color:  $wine;
+  }
+}
+
+/* CSS QUERY
+
+=========================*/
+
+@media only screen and (max-width: 1036px)  {
+  .footer {
+    margin: 18px 0 0 0;
+    p {
+      display: block;
+      margin: 0 0 18px 0;
+    } 
+
+    a {
+      margin-left: 40%;
+    }
+  }
+}
+
+@media only screen and (max-width: 738px)  {
+  .footer {
+    a {
+      margin-left: 30%;
+    }
+  }
+
+  form {
+    label, input, .alert {
+      margin-left: 0px;
+    }
+
+    .alert {
+      width: 90%;
+    }
+  }
+}
+
+@media only screen and (max-width: 632px)  {
+  form {
+    label, input {
+      width: 70%;
+    }
+  }
+}
+
+@media only screen and (max-width: 432px)  {
+  form {
+    button {
+      margin-left: 35px;
+    }
+  }
+
+  .footer {
+    a {
+      margin-left: 16%
+    }
+  }
+}
+
+@media only screen and (max-width: 320px)  {
+  form {
+    button {
+      margin-left: 15px;
+    }
+  }
+
+  .footer {
+    a {
+      margin-left: 8%
     }
   }
 }
