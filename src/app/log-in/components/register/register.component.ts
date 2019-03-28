@@ -27,20 +27,20 @@ export class RegisterComponent implements OnInit {
     private route: Router) {}
 
   ngOnInit() {
-    this.usersList = this.storage.getUsers();
+
     this.formRegister = this.fb.group({
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
       username: ['',
         [
           Validators.required,
-          UsernameValidator(this.usersList)
+          UsernameValidator(this.storage.getUsers())
         ]
       ],
       email: ['',
         [
           Validators.required,
-          EmailValidator(this.usersList)
+          EmailValidator(this.storage.getUsers())
         ]
       ],
       password: ['', Validators.required],
