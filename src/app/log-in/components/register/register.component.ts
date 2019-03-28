@@ -6,11 +6,13 @@ import { User } from './../../../interfaces/user.interface';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsernameValidator } from 'src/app/validators/username.validator';
+import { EmailValidator } from 'src/app/validators/email.validator';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.sass']
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
   usersList: User[] = [];
@@ -25,11 +27,22 @@ export class RegisterComponent implements OnInit {
     private route: Router) {}
 
   ngOnInit() {
+    this.usersList = this.storage.getUsers();
     this.formRegister = this.fb.group({
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
-      username: ['', Validators.required],
-      email: ['', Validators.required],
+      username: ['',
+        [
+          Validators.required,
+          UsernameValidator(this.usersList)
+        ]
+      ],
+      email: ['',
+        [
+          Validators.required,
+          EmailValidator(this.usersList)
+        ]
+      ],
       password: ['', Validators.required],
       image: ['', Validators.required]
     });
@@ -68,23 +81,5 @@ export class RegisterComponent implements OnInit {
     console.log(this.usersList);
     this.user.setUser(newUserInfo);
     this.route.navigate(['/homePage']);
-  }
-
-  usernameExists(username: string) {
-    const userExist = this.usersList.find((user: User) => {
-      return user.username === username;
-    });
-    if (userExist) {
-      return true;
-    }
-  }
-
-  emailExists(email: string) {
-    const userExist = this.usersList.find((user: User) => {
-      return user.email === email;
-    });
-    if (userExist) {
-      return true;
-    }
   }
 }
