@@ -1,8 +1,38 @@
-//Colors
+/* COLORS
+
+=========================*/
+
 $light-blue: #cdffeb;
 $pink: #ffaaaa;
 $dark-pink: #c7004c;
 $wine: #8f1537;
+$white: #fff;
+$disable-gray: #f6f5f5;
+$alert-gray: #d9d9d9;
+$black: #000;
 
-//General Colors
+/* GENERAL COLORS
+
+=========================*/
+
 $general-beckground-color: $light-blue;
+$logIn-background: $dark-pink;
+$disable-color: $disable-gray;
+$enable-color-button: $pink;
+$error-background-color: $alert-gray;
+
+/* GENERAL PADDING
+
+=========================*/
+
+$botton-padding: 10px;
+$anchor-padding: 7px;
+$alert-padding: 5px;
+
+/* BODER RADIUS
+
+=========================*/
+
+$botton-anchor-border-radius: 5px;
+$div-border-radius: 10px;
+
