@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Content } from '@angular/compiler/src/render3/r3_ast';
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +24,4 @@ export class AuthService {
         alert('The register can not be completed');
       });
   }
-
-  // getAllUsers() {
-  //   return this.http.get(this.url + 'api/users');
-  // }
 }
