@@ -1,14 +1,15 @@
-import { LogoutGuardService } from './../guards/logout-guard.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginnComponent } from './components/login/login.component';
+import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/register/register.component';
 import { RouterModule } from '@angular/router';
+import { LogoutGuardService } from '../guards/logout-guard.service';
 
 @NgModule({
   declarations: [
-    LoginnComponent, RegisterComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +19,7 @@ import { RouterModule } from '@angular/router';
     ])
   ],
   exports: [
-    LoginnComponent,
+    LoginComponent,
     RegisterComponent
   ]
 })
