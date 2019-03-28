@@ -1,0 +1,91 @@
+@import '../../../../variables.scss';
+
+/* CSS GRID
+
+=========================*/
+
+h1 {
+  grid-area: title;
+}
+
+form {
+  grid-area: form;
+}
+
+.container {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas: 
+    ". title ."
+    ". form ."
+}
+
+/* CSS STYLE
+
+=========================*/
+
+h1 {
+  color: $title-color;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  color: $p-color;
+}
+
+.form-group {
+  padding-top: 10px;
+}
+
+form {
+  place-self:center;
+  max-width: 300px;
+  padding: 20px;
+  border-radius: $div-border-radius;
+  color: $form-register-color;
+  background-color: $register-background-color;
+
+  input {
+    color: $white;
+    background-color: $register-background-color;
+    box-shadow: none;
+    padding: 10px;
+    border-radius: 0px;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: $light-blue;
+
+    &:focus {
+      border-color: $wine;
+      background-color: $register-background-color;
+    }
+  }
+
+  .alert {
+  
+    background-color: $alert-gray;
+    color: $black;
+    width: 70%;
+    margin: 5px 5px 5px 50px;
+    padding: $alert-padding;
+    text-align: center;
+    border-radius: $div-border-radius;
+  }
+
+  button{
+    text-decoration: none;
+    border: none;
+    border-radius: $botton-anchor-border-radius;
+    padding: $botton-padding;
+    margin-top: 35px;
+    margin-left: 40%;
+    background-color: $enable-register-color-button;
+    color: $white;
+
+    &:disabled {
+      background-color: $disable-color;
+      color: $wine;
+    }
+  }
+}
