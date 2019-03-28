@@ -12,7 +12,7 @@
 .container {
   height: 95vh;
   display: grid;
-  grid-template-rows: 20% 60% 20%;
+  grid-template-rows: 18% auto 18%;
   grid-template-columns: 10% 40% 40% 10%;
   grid-template-areas: 
     ". . . ."
@@ -25,30 +25,91 @@
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   margin-left: 30%;
-  max-width: 70%;
-  //justify-self: center;
-  background-color: $pink;
+  max-width: 75%;
+  background: url('../../../../img/back1.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .data-space {
+  color: $white;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  max-width: 70%;
-  background-color: $dark-pink;
+  max-width: 85%;
+  background-color: $logIn-background;
+
+  h1 {
+    text-align: center;
+  }
 }
 
 form {
-  label, input {
-    margin: 5px 0 5px 5px;
+  .form-group {
+    margin: 10px 0 0 10px;
   }
+
+  label, input {
+    margin: 5px 0 5px 35px;
+  }
+
+  input {
+    color: $white;
+    background-color: $logIn-background;
+    box-shadow: none;
+    padding: 10px;
+    border-radius: 0px;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: $light-blue;
+
+    &:focus {
+      border-color: $wine;
+      background-color: $logIn-background;
+    }
+  }
+}
+
+.alert {
+  
+  background-color: $alert-gray;
+  color: $black;
+  width: 40%;
+  margin: 5px 5px 5px 110px;
+  padding: $alert-padding;
+  text-align: center;
+  border-radius: $div-border-radius;
 }
 
 button{
   text-decoration: none;
   border: none;
-  padding: 10px;
+  border-radius: $botton-anchor-border-radius;
+  padding: $botton-padding;
+  margin-top: 35px;
+  margin-left: 40%;
+  background-color: $enable-color-button;
 
   &:disabled {
-    background-color: black;
+    background-color: $disable-color;
+  }
+}
+
+p {
+  margin: 30px 0 30px 0;
+  text-align: center;
+
+  a {
+    margin-left: 8px;
+    padding: $anchor-padding;
+    border-radius: $botton-anchor-border-radius;
+    border: solid $light-blue 1px;
+    text-decoration: none;
+    color: $light-blue;
+    &:hover {
+      padding: $anchor-padding;
+      background-color: $pink;
+      color:  $wine;
+    }
   }
 }
