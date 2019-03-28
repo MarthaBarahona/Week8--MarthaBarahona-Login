@@ -25,9 +25,6 @@ export class RegisterComponent implements OnInit {
     private route: Router) {}
 
   ngOnInit() {
-    this.usersList = this.storage.getUsers();
-    console.log(this.usersList);
-    console.log(this.state.getBehaviorUser());
     this.formRegister = this.fb.group({
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
@@ -63,12 +60,31 @@ export class RegisterComponent implements OnInit {
   }
 
   register(newUserInfo: User) {
+    this.usersList = this.storage.getUsers();
     this.service.register(newUserInfo);
     this.usersList.push(newUserInfo);
     this.storage.setNewUser(this.usersList);
-    this.state.setBehaviorView(true);
+    this.state.behavior = true;
     console.log(this.usersList);
     this.user.setUser(newUserInfo);
     this.route.navigate(['/homePage']);
+  }
+
+  usernameExists(username: string) {
+    const userExist = this.usersList.find((user: User) => {
+      return user.username === username;
+    });
+    if (userExist) {
+      return true;
+    }
+  }
+
+  emailExists(email: string) {
+    const userExist = this.usersList.find((user: User) => {
+      return user.email === email;
+    });
+    if (userExist) {
+      return true;
+    }
   }
 }
