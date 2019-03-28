@@ -1,3 +1,9 @@
-<p>
-  user-profile works!
-</p>
+<div class="wrapper">
+  <div class="container">
+    <img [src]="user.image" />
+    <p>Username: {{ user.username }}</p>
+    <p>First Name: {{ user.firstname }}</p>
+    <p>Last Name: {{ user.lastname }}</p>
+    <p class="email">Email: {{ user.email }}</p>
+  </div>
+</div>
