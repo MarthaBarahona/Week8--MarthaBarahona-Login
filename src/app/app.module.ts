@@ -37,11 +37,12 @@ import { ProductsComponent } from './home/components/products/products.component
       },
       {path: 'homePage', component: HomePageComponent, canActivate: [AuthGuardService],
         children: [
-          {path: '', redirectTo: 'products', pathMatch: 'full' },
-          {path: 'products', component: ProductsComponent},
-          {path: 'profile', component: UserProfileComponent}
+          {path: '', redirectTo: 'products', pathMatch: 'full', canActivate: [AuthGuardService] },
+          {path: 'products', component: ProductsComponent, pathMatch: 'full', canActivate: [AuthGuardService]},
+          {path: 'profile', component: UserProfileComponent, pathMatch: 'full', canActivate: [AuthGuardService]}
         ]
       },
+      {path: '**', component: LoginComponent}
     ])
   ],
   providers: [
